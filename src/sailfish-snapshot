@@ -205,9 +205,8 @@ make_tarball_from_subvolume() {
     SUBVOLUME=$1
     TARBALL=$2
     echo "Exporting $MOUNTPOINT/$1/ to $(basename $2)"
-    tar --create --bzip2 --atime-preserve --numeric-owner \
-        --preserve-permissions --preserve-order --acls --xattrs \
-        --one-file-system --file $2 --directory=$MOUNTPOINT/$1/ .
+    tar --create --bzip2 --numeric-owner \
+        --file $2 --directory=$MOUNTPOINT/$1/ .
     echo "Exporting done."
 }
 
