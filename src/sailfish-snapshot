@@ -195,8 +195,7 @@ make_system_bootable() {
 make_subvolume_from_tarball() {
     btrfs subvolume create $MOUNTPOINT/$2
     echo "Extracting $(basename $1) to $MOUNTPOINT/$2/"
-    tar --extract --bzip2 --atime-preserve --numeric-owner \
-        --preserve-permissions --preserve-order --acls --xattrs \
+    tar --extract --bzip2 --numeric-owner \
         --file $1 -C $MOUNTPOINT/$2/
     echo "Extraction done."
 }
